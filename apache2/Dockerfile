@@ -1,6 +1,6 @@
 # apache2
 #
-# VERSION	0.3
+# VERSION	1.0
 
 FROM ubuntu:14.04.1
 
