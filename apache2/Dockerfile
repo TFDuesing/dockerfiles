@@ -1,16 +1,13 @@
-# apache2
+# The Apache HTTP Server
 #
-# VERSION	1.0
-
-FROM ubuntu:14.04.1
+# VERSION	2.0
 
 MAINTAINER Thomas Duesing <TFDuesing@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
+FROM alpine:latest
 
-RUN ["/usr/bin/apt-get", "-qq", "update"]
-RUN ["/usr/bin/apt-get", "-qq", "install", "apache2"]
+RUN /sbin/apk add --update apache2 && rm -rf /var/cache/apk/*
 
 EXPOSE 80
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
